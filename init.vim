@@ -16,7 +16,7 @@ inoremap <LeftMouse> <nop>
 inoremap <RightMouse> <nop>
 vnoremap <LeftMouse> <nop>
 vnoremap <RightMouse> <nop>
-tnoremap fj <C-\><c-n> 
+tnoremap <esc> <C-\><c-n> 
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 tnoremap <C-w>w <C-\><C-n><C-w><C-w>
 tnoremap <C-w>h <C-\><C-n><C-w><C-h>
@@ -46,17 +46,12 @@ nnoremap <C-b> <C-t>
 nnoremap    <F6> :wa<CR> <bar>  :make<CR>
 let mapleader = ','
 map <leader> <Plug>(easymotion-prefix)
-imap <leader>' ''<Esc>i
-imap <leader>" ""<Esc>i
-imap <leader>( ()<Esc>i
-imap <leader>[ []<Esc>i
-imap <leader>{ {}<Esc>i
 set nohlsearch
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:clang_library_path="/usr/lib/llvm-3.8/lib"
 set completeopt=longest,menuone
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-autocmd Filetype cpp setlocal omnifunc=clangComplete
+autocmd Filetype cpp setlocal omnifunc=ClangComplete
 autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
 let g:clang_user_options='|| exit 0'
 autocmd Filetype java nmap <buffer> <F7> :!java -jar build/*.jar<CR>
