@@ -37,3 +37,9 @@
 [submodule "bundle/clang_complete"]
 	path = bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki
+[submodule "bundle/neomake"]
+	path = bundle/neomake
+	url = https://github.com/neomake/neomake.git

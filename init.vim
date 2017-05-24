@@ -1,4 +1,5 @@
 execute pathogen#infect()
+"blargh
 :inoremap fj <Esc>
 :nnoremap <up> ddkP
 nnoremap <down> ddp
@@ -16,6 +17,14 @@ inoremap <LeftMouse> <nop>
 inoremap <RightMouse> <nop>
 vnoremap <LeftMouse> <nop>
 vnoremap <RightMouse> <nop>
+nnoremap <RightMouse><RightMouse> <nop>
+nnoremap <LeftMouse><LeftMouse> <nop>
+tnoremap <LeftMouse><LeftMouse> <nop>
+tnoremap <RightMouse><RightMouse> <nop>
+inoremap <LeftMouse><LeftMouse> <nop>
+inoremap <RightMouse><RightMouse> <nop>
+vnoremap <LeftMouse><LeftMouse> <nop>
+vnoremap <RightMouse><RightMouse> <nop>
 tnoremap <esc> <C-\><c-n> 
 tnoremap <C-w><C-w> <C-\><C-n><C-w><C-w>
 tnoremap <C-w>w <C-\><C-n><C-w><C-w>
@@ -53,6 +62,7 @@ set completeopt=longest,menuone
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype cpp setlocal omnifunc=ClangComplete
 autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
+autocmd Bufread,BufNewFile *.wiki nmap <buffer> <F6> :w<CR>:VimwikiAll2HTML<CR>:e%<CR>
 let g:clang_user_options='|| exit 0'
 autocmd Filetype java nmap <buffer> <F7> :!java -jar build/*.jar<CR>
 autocmd Filetype python nmap <buffer> <F6> :wa<CR>
@@ -99,3 +109,10 @@ function! s:ExecuteCurrentFile()
 endfunction
 
 nnoremap <C-e> :call <SID>ExecuteCurrentFile()<CR>
+
+
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
+
+let g:clang_user_options="-std=c++14"
