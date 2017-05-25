@@ -1,5 +1,10 @@
 execute pathogen#infect()
-call deoplete#enable()
+"call deoplete#enable()
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+"let g:deoplete#complete_method="omnifunc"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 :inoremap fj <Esc>
 :nnoremap <up> ddkP
 nnoremap <down> ddp
