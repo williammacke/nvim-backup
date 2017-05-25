@@ -1,4 +1,5 @@
 execute pathogen#infect()
+call deoplete#enable()
 :inoremap fj <Esc>
 :nnoremap <up> ddkP
 nnoremap <down> ddp
