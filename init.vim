@@ -1,9 +1,4 @@
 execute pathogen#infect()
-"call deoplete#enable()
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-autocmd vimEnter * SystasticToggleMode
 "let g:deoplete#complete_method="omnifunc"
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 :inoremap fj <Esc>
@@ -28,6 +23,29 @@ inoremap <RightMouse><RightMouse> <nop>
 vnoremap <LeftMouse><LeftMouse> <nop>
 vnoremap <RightMouse><RightMouse> <nop>
 if has('nvim')
+	call deoplete#enable()
+	if !exists('g:deoplete#omni#input_patterns')
+		let g:deoplete#omni#input_patterns = {}
+	endif
+	set completeopt+=noinsert
+	set completeopt-=preview
+	let g:deoplete#enable_ignore_case = 'ignorecase'
+	let g:deoplete#auto_completion_start_length = 0
+	let g:min_pattern_length = 0
+	" https://github.com/Shougo/deoplete.nvim/issues/117
+
+	let g:deoplete#ignore_sources = {}
+	let g:deoplete#ignore_sources._ = ['buffer', 'vim', 'member']
+	let g:deoplete#sources#go = 'vim-go'
+
+	inoremap <expr><C-n> deoplete#mappings#manual_complete()
+
+	if exists(':DeopleteEnable')
+		let g:jedi#completions_enabled = 1
+		let g:jedi#auto_vim_configuration = 1
+		let g:jedi#smart_auto_mappings = 1
+		let g:jedi#show_call_signatures = 1
+	endif
 	tnoremap <LeftMouse><LeftMouse> <nop>
 	tnoremap <RightMouse><RightMouse> <nop>
 	tnoremap <LeftMouse> <nop>
@@ -133,11 +151,11 @@ let g:neomake_cpp_enable_markers=['clang']
 let g:neomake_cpp_clang_args = ["-std=c++14", "-Wextra", "-Wall", "-fsanitize=undefined","-g"]
 
 let g:neomake_python_flake8_maker = {
-    \ 'args': ['--ignore=E221,E241,E272,E251,W702,E203,E201,E202',  '--format=default'],
-    \ 'errorformat':
-        \ '%E%f:%l: could not compile,%-Z%p^,' .
-        \ '%A%f:%l:%c: %t%n %m,' .
-        \ '%A%f:%l: %t%n %m,' .
-        \ '%-G%.%#',
-    \ }
+			\ 'args': ['--ignore=E221,E241,E272,E251,W702,E203,E201,E202',  '--format=default'],
+			\ 'errorformat':
+			\ '%E%f:%l: could not compile,%-Z%p^,' .
+			\ '%A%f:%l:%c: %t%n %m,' .
+			\ '%A%f:%l: %t%n %m,' .
+			\ '%-G%.%#',
+			\ }
 let g:neomake_python_enabled_makers = ['flake8']
