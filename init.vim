@@ -3,6 +3,7 @@ execute pathogen#infect()
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+autocmd vimEnter * SystasticToggleMode
 "let g:deoplete#complete_method="omnifunc"
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 :inoremap fj <Esc>
