@@ -40,9 +40,3 @@
 [submodule "bundle/neomake"]
 	path = bundle/neomake
 	url = https://github.com/neomake/neomake.git
-[submodule "bundle/deoplete.nvim"]
-	path = bundle/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim
-[submodule "bundle/deoplete-jedi"]
-	path = bundle/deoplete-jedi
-	url = https://github.com/zchee/deoplete-jedi
