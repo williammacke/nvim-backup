@@ -1,6 +1,5 @@
 execute pathogen#infect()
-"let g:deoplete#complete_method="omnifunc"
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:JavaComplete_GradleExecutable = './gradlew'
 :inoremap fj <Esc>
 :nnoremap <up> ddkP
 nnoremap <down> ddp
@@ -23,29 +22,6 @@ inoremap <RightMouse><RightMouse> <nop>
 vnoremap <LeftMouse><LeftMouse> <nop>
 vnoremap <RightMouse><RightMouse> <nop>
 if has('nvim')
-	call deoplete#enable()
-	if !exists('g:deoplete#omni#input_patterns')
-		let g:deoplete#omni#input_patterns = {}
-	endif
-	set completeopt+=noinsert
-	set completeopt-=preview
-	let g:deoplete#enable_ignore_case = 'ignorecase'
-	let g:deoplete#auto_completion_start_length = 0
-	let g:min_pattern_length = 0
-	" https://github.com/Shougo/deoplete.nvim/issues/117
-
-	let g:deoplete#ignore_sources = {}
-	let g:deoplete#ignore_sources._ = ['buffer', 'vim', 'member']
-	let g:deoplete#sources#go = 'vim-go'
-
-	inoremap <expr><C-n> deoplete#mappings#manual_complete()
-
-	if exists(':DeopleteEnable')
-		let g:jedi#completions_enabled = 1
-		let g:jedi#auto_vim_configuration = 1
-		let g:jedi#smart_auto_mappings = 1
-		let g:jedi#show_call_signatures = 1
-	endif
 	tnoremap <LeftMouse><LeftMouse> <nop>
 	tnoremap <RightMouse><RightMouse> <nop>
 	tnoremap <LeftMouse> <nop>
